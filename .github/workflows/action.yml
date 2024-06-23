@@ -8,12 +8,23 @@ jobs:
     name: Build simple project
     runs-on: ubuntu-latest
     steps:
+
       #is used to ensure our virtual machine has a copy of our codebase. The checkout code will be used to run tests against. At this point of writing, the latest version is 2.
+      - name: Checkout repository
         uses: actions/checkout@v2
-      
+
       #is used to set up proper versions of Node.js since we can perform testing against multiple versions.
+      - name: Setup Node.js
         uses: actions/setup-node@v1
 
+      - name: Install dependencies
         run: npm install
 
+      - name: Run tests
         run: npm test
+        
+#     Without using names
+#     - uses: actions/checkout@v2
+#     - uses: actions/setup-node@v1
+#     - run: npm install
+#     - run: npm test
