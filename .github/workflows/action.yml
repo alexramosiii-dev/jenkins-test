@@ -2,7 +2,7 @@ name: Github Actions Example
 on:
   push:
     branches:
-      - master
+      - '*'
 jobs:
   build:
     name: Build simple project
@@ -22,7 +22,7 @@ jobs:
 
       - name: Run tests
         run: npm test
-        
+
 #     Without using names
 #     - uses: actions/checkout@v2
 #     - uses: actions/setup-node@v1
